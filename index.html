@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="NEET-SS Prep">
+  <meta name="description" content="Personal NEET-SS Orthopaedics study planner and progress tracker.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <title>NEET-SS Orthopaedics Prep</title>
+  <style>
+    :root{--bg:#0b1220;--panel:#121d2e;--panel2:#18263a;--line:#28384f;--text:#edf3fb;--muted:#9db0c8;--accent:#70d6bd;--accent2:#91b8ff;--warn:#f2c879;--danger:#f08b8b;--radius:18px}
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(160deg,#0b1220,#101c2d 60%,#0b1220);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+    header{padding:calc(18px + env(safe-area-inset-top)) 18px 14px;position:sticky;top:0;background:#0b1220ee;backdrop-filter:blur(16px);z-index:5;border-bottom:1px solid #23334a}
+    .topline{display:flex;justify-content:space-between;align-items:center;gap:10px}.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--accent);font-weight:800;text-transform:uppercase}.brand{font-size:21px;font-weight:850;letter-spacing:-.04em;margin:3px 0}.sub{color:var(--muted);font-size:12px}
+    .countdown{background:#193044;border:1px solid #31536a;border-radius:14px;padding:8px 11px;text-align:center;min-width:76px}.countdown b{display:block;font-size:22px;line-height:1.1}.countdown span{font-size:10px;color:#b8d8e6;text-transform:uppercase;letter-spacing:.08em}
+    main{max-width:760px;margin:auto;padding:16px 14px 26px}.tab{display:none}.tab.active{display:block}.section-head{display:flex;justify-content:space-between;align-items:end;margin:8px 2px 12px}.section-head h2{margin:0;font-size:19px;letter-spacing:-.03em}.muted{color:var(--muted)}.small{font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:linear-gradient(145deg,#152338,#111d2d);border:1px solid var(--line);border-radius:var(--radius);padding:15px;box-shadow:0 10px 25px #0002}.card h3{margin:0 0 7px;font-size:14px}.big{font-size:27px;font-weight:850;letter-spacing:-.05em}.label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+    .wide{grid-column:1/-1}.progress{height:8px;border-radius:99px;background:#293950;overflow:hidden;margin:9px 0 4px}.progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#8bd3ff);border-radius:99px;width:0}
+    .btn{border:1px solid #39516d;background:#1b2c43;color:var(--text);padding:10px 13px;border-radius:12px;font-weight:700;font-size:13px;cursor:pointer}.btn.primary{background:var(--accent);color:#09221e;border-color:var(--accent)}.btn.ghost{background:transparent}.btn.danger{color:#ffb5b5;border-color:#74444b}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .day{margin-bottom:10px}.daytop{display:flex;align-items:flex-start;gap:10px}.daytop input{width:19px;height:19px;accent-color:var(--accent);margin-top:3px}.daytitle{font-weight:750}.daydate{font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.05em}.details{color:#b7c5d8;font-size:13px;margin:8px 0 0 29px}.day small{color:var(--muted)}
+    .pill{display:inline-flex;padding:4px 8px;border-radius:99px;background:#1e3446;color:#a9e6d9;font-size:10px;font-weight:800;letter-spacing:.05em}.topic-list{padding-left:18px;margin:8px 0 0;color:#c2d0e1}.topic-list li{margin:4px 0}
+    input[type=number],input[type=text],textarea,select{width:100%;background:#0d1726;border:1px solid #34475f;border-radius:11px;color:var(--text);padding:11px;font:inherit}textarea{min-height:110px;resize:vertical}.field{margin:10px 0}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.statrow{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #29394d}.statrow:last-child{border:0}
+    .nav{position:fixed;bottom:0;left:0;right:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#0a1220ed;backdrop-filter:blur(18px);border-top:1px solid #26364d;display:grid;grid-template-columns:repeat(5,1fr);z-index:10}.nav button{background:none;border:0;color:#91a5bd;font-size:10px;font-weight:700;padding:5px 0;cursor:pointer}.nav button span{display:block;font-size:19px;margin-bottom:1px}.nav button.active{color:var(--accent)}
+    .notice{background:#2c2a1e;border:1px solid #615333;color:#f3dca8;padding:12px;border-radius:14px;font-size:12px;margin-bottom:12px}.empty{padding:20px;text-align:center;color:var(--muted)}
+    @media(min-width:600px){main{padding:22px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.wide{grid-column:span 4}.nav{left:50%;transform:translateX(-50%);max-width:760px;border-radius:18px 18px 0 0}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="topline">
+    <div><div class="eyebrow">Personal study command centre</div><div class="brand">NEET-SS Orthopaedics</div><div class="sub">Full-time revision sprint · 5–6 hours/day · Exam: 11 Dec 2026</div></div>
+    <div class="countdown"><b id="daysLeft">—</b><span>days left</span></div>
+  </div>
+</header>
+<main>
+  <section id="home" class="tab active">
+    <div class="notice">Personalised for full-time preparation after one reading of most subjects. Focus now: active recall, MCQ analysis, images and clinical decision-making. Progress is saved on this device.</div>
+    <div class="section-head"><h2>Today's focus</h2><span class="pill" id="todayLabel">STUDY DAY</span></div>
+    <div class="card wide" id="todayCard"></div>
+    <div class="section-head"><h2>Preparation overview</h2><span class="small muted">Live progress</span></div>
+    <div class="grid">
+      <div class="card"><div class="label">Study days done</div><div class="big" id="daysDone">0/27</div><div class="progress"><i id="dayProgress"></i></div></div>
+      <div class="card"><div class="label">MCQs attempted</div><div class="big" id="mcqTotal">0</div><div class="small muted">Across all logged sessions</div></div>
+      <div class="card"><div class="label">Average accuracy</div><div class="big" id="accuracy">—</div><div class="small muted">Correct / attempted</div></div>
+      <div class="card"><div class="label">Study hours logged</div><div class="big" id="hoursTotal">0</div><div class="small muted">Your recorded effort</div></div>
+      <div class="card wide"><h3>Daily 5–6 hour structure</h3><div class="statrow"><span>Focused revision</span><b>90 min</b></div><div class="statrow"><span>Timed MCQs</span><b>75 min · 35–40 Q</b></div><div class="statrow"><span>MCQ analysis</span><b>60 min</b></div><div class="statrow"><span>Images + clinical application</span><b>60 min</b></div><div class="statrow"><span>Spaced revision</span><b>30 min</b></div><div class="statrow"><span>Hand / Paediatrics rotation</span><b>30 min</b></div><div class="actions"><button class="btn primary" onclick="showTab('tracker')">Log today's work</button><button class="btn" onclick="showTab('plan')">Open study plan</button></div></div>
+    </div>
+  </section>
+  <section id="plan" class="tab">
+    <div class="section-head"><h2>27-day study plan</h2><span class="small muted">14 Nov – 10 Dec</span></div>
+    <div class="card wide"><div class="small muted">Tick a day when its core study is complete. Tap the topic card to view its detailed focus.</div><div class="progress"><i id="planProgress"></i></div><div class="small" id="planCount">0 of 27 days complete</div></div>
+    <div id="daysList" style="margin-top:12px"></div>
+  </section>
+  <section id="tracker" class="tab">
+    <div class="section-head"><h2>Daily performance</h2><span class="pill">LOG SESSION</span></div>
+    <div class="card wide">
+      <div class="field"><label for="logDate">Date</label><input type="date" id="logDate"></div>
+      <div class="grid">
+        <div class="field"><label for="attempted">MCQs attempted</label><input id="attempted" type="number" min="0" max="500" value="40"></div>
+        <div class="field"><label for="correct">Correct answers</label><input id="correct" type="number" min="0" max="500" value="28"></div>
+        <div class="field"><label for="hours">Study hours</label><input id="hours" type="number" min="0" max="24" step=".5" value="5.5"></div>
+        <div class="field"><label for="topic">Topic studied</label><input id="topic" type="text" placeholder="e.g. DDH / SCFE"></div>
+      </div>
+      <div class="field"><label for="mistakes">Mistakes / concepts to revisit</label><textarea id="mistakes" placeholder="Record the concept, why you got it wrong, and the correct principle…"></textarea></div>
+      <button class="btn primary" onclick="saveLog()">Save study session</button>
+    </div>
+    <div class="section-head"><h2>Recent sessions</h2></div><div id="logs"></div>
+  </section>
+  <section id="revision" class="tab">
+    <div class="section-head"><h2>High-yield revision</h2><span class="small muted">Tap to expand</span></div>
+    <div id="revisionList"></div>
+    <div class="card wide" style="margin-top:12px"><h3>Personal error notebook</h3><div class="field"><label for="errorNote">Add a concept you repeatedly forget</label><textarea id="errorNote" placeholder="Example: Distinguish Loder stability from Southwick slip angle…"></textarea></div><button class="btn primary" onclick="addError()">Add to error notebook</button><div id="errorList" style="margin-top:12px"></div></div>
+  </section>
+  <section id="mocks" class="tab">
+    <div class="section-head"><h2>Mock examinations</h2><span class="pill">150 QUESTIONS</span></div>
+    <div class="card wide"><h3>Exam simulation format</h3><div class="statrow"><span>Section A</span><b>50 questions · 50 min</b></div><div class="statrow"><span>Section B</span><b>50 questions · 50 min</b></div><div class="statrow"><span>Section C</span><b>50 questions · 50 min</b></div><div class="statrow"><span>Marking</span><b>+4 / −1 / 0</b></div><div class="notice" style="margin-top:12px;margin-bottom:0">Use a strict timer. Treat each section as locked when its 50 minutes end; do not rely on being able to return to previous sections.</div></div>
+    <div id="mockList" style="margin-top:12px"></div>
+    <div class="card wide" style="margin-top:12px"><h3>Record a mock result</h3><div class="grid"><div class="field"><label for="mockName">Mock</label><select id="mockName"><option>Diagnostic – 14 Nov</option><option>Mock I – 7 Dec</option><option>Mock II – 9 Dec</option><option>Other practice test</option></select></div><div class="field"><label for="mockScore">Score / 600</label><input id="mockScore" type="number" min="0" max="600"></div><div class="field"><label for="mockCorrect">Correct</label><input id="mockCorrect" type="number" min="0" max="150"></div><div class="field"><label for="mockWrong">Incorrect</label><input id="mockWrong" type="number" min="0" max="150"></div></div><button class="btn primary" onclick="saveMock()">Save mock result</button><div id="mockResults" style="margin-top:12px"></div></div>
+  </section>
+</main>
+<nav class="nav">
+  <button class="active" data-tab="home" onclick="showTab('home')"><span>⌂</span>Home</button>
+  <button data-tab="plan" onclick="showTab('plan')"><span>▦</span>Study plan</button>
+  <button data-tab="tracker" onclick="showTab('tracker')"><span>✓</span>Tracker</button>
+  <button data-tab="revision" onclick="showTab('revision')"><span>✦</span>Revision</button>
+  <button data-tab="mocks" onclick="showTab('mocks')"><span>◷</span>Mocks</button>
+</nav>
+<script>
+const days = [
+["14 Nov","Baseline + trauma foundations","Timed baseline MCQ set; fracture healing, biomechanics, AO principles, open fractures, Gustilo–Anderson and compartment syndrome. Identify your three weakest subjects."],
+["15 Nov","Upper-limb trauma","Proximal and distal humerus; elbow dislocations; Monteggia and Galeazzi; distal radius; scaphoid; perilunate injuries; nerve injuries and fixation principles."],
+["16 Nov","Lower-limb trauma","Neck femur, intertrochanteric and subtrochanteric fractures; femoral and tibial shaft; distal femur; tibial plateau, pilon and ankle fractures; fixation choices."],
+["17 Nov","Pelvis, acetabulum + complications","Pelvic ring and haemodynamic management; acetabular classification and approaches; sacral injuries; nonunion, malunion, compartment syndrome, fat embolism and DVT."],
+["18 Nov","Spine: trauma + degeneration","Cervical and thoracolumbar trauma; spondylolisthesis; lumbar canal stenosis; disc herniation; myelopathy, radiculopathy and ASIA neurological examination."],
+["19 Nov","Spine: deformity + advanced concepts","AIS and Lenke classification; kyphosis; sagittal balance; spinal infections; osteotomy and instrumentation principles."],
+["20 Nov","Paediatrics: DDH","Hip development and anatomy; Barlow, Ortolani and Galeazzi; Graf classification; imaging; Pavlik harness; closed/open reduction; pelvic osteotomies and residual dysplasia."],
+["21 Nov","Paediatrics: Perthes + SCFE","Waldenström, Herring and Stulberg; SCFE stable/unstable, Southwick angle and Loder; treatment principles and complications; coxa vara/valga."],
+["22 Nov","Paediatrics: CTEV + foot deformities","Ponseti method, Pirani and Dimeglio; relapse, complex clubfoot, dynamic supination and tibialis anterior transfer; metatarsus adductus and vertical talus."],
+["23 Nov","Paediatrics: comprehensive revision","Cerebral palsy and gait; Blount disease; genu varum/valgum; physeal injuries and growth arrest; skeletal dysplasias; OI; paediatric fractures and non-accidental injury."],
+["24 Nov","Hand: flexor + extensor tendons","Verdan zones; flexor tendon anatomy and repair; pulley system; FDP/FDS; extensor zones; jersey finger; mallet finger; boutonnière; adhesions and rehabilitation."],
+["25 Nov","Hand: nerves + brachial plexus","Median, ulnar and radial nerve lesions; high versus low palsy; Seddon/Sunderland; nerve regeneration; brachial plexus; nerve transfers and tendon transfers."],
+["26 Nov","Hand: replantation + microsurgery","Replantation indications and contraindications; ischaemia and preservation; digital replantation; vascular repair; flaps and free tissue transfer; mangled hand."],
+["27 Nov","Hand: wrist + congenital reconstruction","Carpal instability and scapholunate injury; TFCC and DRUJ; distal-radius sequelae; carpal tunnel; syndactyly, polydactyly, Dupuytren, trigger finger and hand infections."],
+["28 Nov","Musculoskeletal oncology I","Bone tumour imaging; biopsy principles; Enneking staging; GCT and Campanacci; osteosarcoma; Ewing sarcoma; chondrosarcoma and benign bone tumours."],
+["29 Nov","Musculoskeletal oncology II","Soft-tissue sarcomas; metastatic bone disease; limb salvage versus amputation; chemotherapy principles; pathological fractures and reconstruction."],
+["30 Nov","Arthroplasty: hip","THA indications; approaches; bearing surfaces; cemented/uncemented fixation; cup and stem positioning; dislocation, infection, loosening and revision."],
+["1 Dec","Arthroplasty: knee","TKA alignment and balancing; implant constraint; patellofemoral problems; periprosthetic fractures; infection and revision principles."],
+["2 Dec","Sports medicine","ACL/PCL, menisci and collateral ligaments; graft choices and tunnel placement; shoulder instability; rotator cuff; arthroscopy and cartilage procedures."],
+["3 Dec","Orthopaedic infections","Acute/chronic osteomyelitis; septic arthritis; TB of bone and spine; PJI; biofilm; antibiotic cement; DAIR and revision strategies."],
+["4 Dec","Basic sciences + biomechanics","Bone biology and remodelling; Wolff's law; RANK/RANKL/OPG; stress-strain; Young's modulus; fatigue failure; load sharing; gait, muscle function and nerve physiology."],
+["5 Dec","Rapid revision: trauma + spine","Classifications, fracture approaches, operative indications, complications, spine measurements and 40 mixed MCQs. Prioritise weak areas."],
+["6 Dec","Rapid revision: Hand + Paediatrics","Tendon and nerve algorithms; replantation; DDH, CTEV, Perthes, SCFE and paediatric deformity; 50 mixed MCQs and image review."],
+["7 Dec","Full mock examination I","Full timed simulation under exam conditions. Review every incorrect and guessed answer; classify errors as knowledge, interpretation, confusion or careless mistakes."],
+["8 Dec","Mock analysis + weak-area repair","Revisit the five weakest topics; reattempt incorrect questions; revise high-yield tables, images and difficult clinical scenarios. Avoid broad new reading."],
+["9 Dec","Full mock examination II","Second full timed simulation. Analyse accuracy, pacing, guesses and negative marking; make a concise final error list."],
+["10 Dec","Final revision + recovery","Classifications, measurements, surgical approaches, implants, nerve lesions, Hand and Paediatric algorithms, personal error notebook. Finish early and sleep adequately."]
+];
+const revisions = [
+["Trauma","AO/OTA; Gustilo–Anderson; Tscherne; Garden; Pauwels; Pipkin; Evans/Jensen; Seinsheimer; Schatzker; Luo; Tile; Young–Burgess; Letournel; nonunion; fracture healing; bone grafts; fixation biomechanics."],
+["Spine","Lenke; King–Moe; Cobb angle; PI, PT, SS and SVA; Meyerding; Wiltse; ASIA; cervical myelopathy; spinal TB; pedicle screw trajectory; pseudarthrosis."],
+["Paediatric orthopaedics","Graf; Tönnis; acetabular index; CEA; Salter–Harris; Peterson; Catterall; Herring; Stulberg; Southwick; Loder; Pirani; Dimeglio; Langenskiöld; GMFCS."],
+["Hand surgery","Verdan zones; tendon repair; pulley anatomy; Seddon; Sunderland; Wallerian degeneration; nerve transfers; brachial plexus; tendon transfers; replantation; SLAC/SNAC; Dupuytren."],
+["Musculoskeletal oncology","Enneking; Campanacci; WHO tumour classification; biopsy principles; radiographic patterns; osteosarcoma; Ewing; chondrosarcoma; limb salvage; endoprostheses."],
+["Arthroplasty","THA approaches; cup orientation; bearing surfaces; cementing; wear; stress shielding; TKA alignment; gap balancing; AORI; Paprosky; PJI criteria; Vancouver."],
+["Sports medicine","ACL/PCL grafts; tunnel placement; ramp lesions; meniscal root; LET/ALL; Bankart; Hill-Sachs; Latarjet; rotator cuff; OATS; ACI/MACI."],
+["Infections","Cierny–Mader; Brodie abscess; Kocher criteria; TB arthritis; PJI; biofilm; antibiotic cement; DAIR; one-stage versus two-stage revision."],
+["Basic sciences","Wolff's law; mechanostat; RANK/RANKL/OPG; stress/strain; Young's modulus; fatigue failure; load sharing; bone graft incorporation; gait cycle; moment arms."]
+];
+const key='neetssPrepV1';
+let state=JSON.parse(localStorage.getItem(key)||'{"done":[],"logs":[],"errors":[],"mocks":[]}');
+function persist(){localStorage.setItem(key,JSON.stringify(state));renderAll()}
+function showTab(id){document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'})}
+function parseDate(s){return new Date('2026 '+s.replace('Nov','November').replace('Dec','December'))}
+function renderPlan(){
+ const el=document.getElementById('daysList');el.innerHTML='';
+ days.forEach((d,i)=>{const div=document.createElement('div');div.className='card day';div.innerHTML=`<div class="daytop"><input type="checkbox" ${state.done.includes(i)?'checked':''} aria-label="Complete day ${i+1}"><div style="flex:1"><div class="daydate">DAY ${i+1} · ${d[0]}</div><div class="daytitle">${d[1]}</div><small>Tap to view daily objectives</small></div><span class="pill">${state.done.includes(i)?'DONE':'PLAN'}</span></div><div class="details" hidden>${d[2]}</div>`;const cb=div.querySelector('input');cb.addEventListener('change',()=>{state.done=cb.checked?[...state.done,i]:state.done.filter(x=>x!==i);persist()});div.querySelector('.daytop').addEventListener('click',e=>{if(e.target.tagName!=='INPUT')div.querySelector('.details').hidden=!div.querySelector('.details').hidden});el.appendChild(div)});
+ const p=state.done.length/27*100;document.getElementById('planProgress').style.width=p+'%';document.getElementById('planCount').textContent=`${state.done.length} of 27 days complete`;
+}
+function renderHome(){
+ const now=new Date();const exam=new Date('2026-12-11T14:00:00');document.getElementById('daysLeft').textContent=Math.max(0,Math.ceil((exam-now)/86400000));
+ const start=new Date('2026-11-14T00:00:00');const idx=Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-start)/86400000);
+ const valid=Math.max(0,Math.min(26,idx));const d=days[valid];document.getElementById('todayLabel').textContent=idx<0?'PREPARATION':idx>26?'EXAM WINDOW':`DAY ${valid+1}`;
+ document.getElementById('todayCard').innerHTML=`<div class="daydate">${d[0]} · DAY ${valid+1}</div><h2 style="margin:5px 0 8px">${d[1]}</h2><p class="muted" style="margin:0">${d[2]}</p><div class="actions"><button class="btn primary" onclick="showTab('plan')">View day in planner</button><button class="btn" onclick="showTab('tracker')">Log progress</button></div>`;
+ const attempted=state.logs.reduce((a,x)=>a+x.attempted,0),correct=state.logs.reduce((a,x)=>a+x.correct,0),hours=state.logs.reduce((a,x)=>a+x.hours,0);
+ document.getElementById('daysDone').textContent=`${state.done.length}/27`;document.getElementById('dayProgress').style.width=(state.done.length/27*100)+'%';document.getElementById('mcqTotal').textContent=attempted;document.getElementById('accuracy').textContent=attempted?Math.round(correct/attempted*100)+'%':'—';document.getElementById('hoursTotal').textContent=hours.toFixed(1);
+}
+function saveLog(){const attempted=+document.getElementById('attempted').value,correct=+document.getElementById('correct').value,hours=+document.getElementById('hours').value;if(correct>attempted||attempted<0||hours<0){alert('Check your numbers: correct answers cannot exceed attempted questions.');return}state.logs.unshift({date:document.getElementById('logDate').value||new Date().toISOString().slice(0,10),attempted,correct,hours,topic:document.getElementById('topic').value,mistakes:document.getElementById('mistakes').value});persist();document.getElementById('mistakes').value='';document.getElementById('topic').value=''}
+function renderLogs(){const el=document.getElementById('logs');el.innerHTML=state.logs.length?'':'<div class="card empty">No study sessions logged yet.</div>';state.logs.slice(0,12).forEach((x,i)=>{const d=document.createElement('div');d.className='card day';d.innerHTML=`<b>${x.date} · ${x.topic||'Study session'}</b><div class="small muted">${x.attempted} attempted · ${x.correct} correct · ${x.attempted?Math.round(x.correct/x.attempted*100):0}% accuracy · ${x.hours} hours</div>${x.mistakes?`<p class="small">${escapeHtml(x.mistakes)}</p>`:''}<button class="btn ghost danger" onclick="deleteLog(${i})">Delete</button>`;el.appendChild(d)})}
+function deleteLog(i){state.logs.splice(i,1);persist()}
+function renderRevision(){const el=document.getElementById('revisionList');el.innerHTML='';revisions.forEach(([name,txt])=>{const d=document.createElement('div');d.className='card day';d.innerHTML=`<div class="daytop"><div style="flex:1"><b>${name}</b><div class="small muted">High-yield checklist</div></div><span class="pill">REVISE</span></div><div class="details" hidden>${escapeHtml(txt)}</div>`;d.querySelector('.daytop').onclick=()=>d.querySelector('.details').hidden=!d.querySelector('.details').hidden;el.appendChild(d)});renderErrors()}
+function addError(){const v=document.getElementById('errorNote').value.trim();if(!v)return;state.errors.unshift(v);document.getElementById('errorNote').value='';persist()}
+function renderErrors(){const el=document.getElementById('errorList');el.innerHTML=state.errors.length?'':'<div class="small muted">Your saved errors will appear here.</div>';state.errors.forEach((x,i)=>{const d=document.createElement('div');d.className='statrow';d.innerHTML=`<span>${escapeHtml(x)}</span><button class="btn ghost danger" onclick="removeError(${i})">Remove</button>`;el.appendChild(d)})}
+function removeError(i){state.errors.splice(i,1);persist()}
+function saveMock(){const score=+document.getElementById('mockScore').value,correct=+document.getElementById('mockCorrect').value,wrong=+document.getElementById('mockWrong').value;if(score<0||score>600||correct+wrong>150){alert('Check score and question counts.');return}state.mocks.unshift({name:document.getElementById('mockName').value,score,correct,wrong});persist()}
+function renderMocks(){const el=document.getElementById('mockList');el.innerHTML='';[['Diagnostic – 14 Nov','Baseline'],['Mock I – 7 Dec','Full-length'],['Mock II – 9 Dec','Full-length']].forEach(([n,t])=>{const x=state.mocks.find(m=>m.name===n);const d=document.createElement('div');d.className='card day';d.innerHTML=`<div class="daytop"><div style="flex:1"><div class="daytitle">${n}</div><small>${t} · 150 questions</small></div><b class="big" style="font-size:20px">${x?x.score+'/600':'—'}</b></div>`;el.appendChild(d)});const r=document.getElementById('mockResults');r.innerHTML=state.mocks.filter(m=>m.name==='Other practice test').map(m=>`<div class="statrow"><span>${m.name}</span><b>${m.score}/600</b></div>`).join('')}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderAll(){renderHome();renderPlan();renderLogs();renderRevision();renderMocks()}
+document.getElementById('logDate').value=new Date().toISOString().slice(0,10);
+renderAll();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>
